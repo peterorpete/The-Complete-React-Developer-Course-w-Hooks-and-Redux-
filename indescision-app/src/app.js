@@ -13,6 +13,9 @@ let template = (
   </ol>
  </div>
 );
+
+///////////////////////////
+
 let user = {
  name: "Peter",
  age: 38,
@@ -20,16 +23,14 @@ let user = {
 };
 let getLocation = function (location) {
  if (location) {
-  return location;
- } else {
-  return "unknown";
+  return <p>Location: {location}</p>;
  }
 };
 let tempateTwo = (
  <div>
-  <h1>{user.name}</h1>
-  <p>{user.age}</p>
-  <p>Location: {getLocation(user.location)}</p>
+  <h1>{user.name ? user.name : "unknown"}</h1>
+  {user.age >= 18 && user.age && <p>Age: {user.age}</p>}
+  <p>{getLocation(user.location)}</p>
  </div>
 );
 var appRoot = document.getElementById("app");
