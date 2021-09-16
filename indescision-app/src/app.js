@@ -16,25 +16,25 @@ let template = (
  </div>
 );
 
-///////////////////////////
-
-let user = {
- name: "Peter",
- age: 38,
- location: "Cornwall",
+let count = 0;
+const addOne = () => {
+ console.log("add 1");
 };
-let getLocation = function (location) {
- if (location) {
-  return <p>Location: {location}</p>;
- }
+const minusOne = () => {
+ console.log("minus 1");
 };
-let tempateTwo = (
+const reset = () => {
+ console.log("reset");
+};
+const templateTwo = (
  <div>
-  <h1>{user.name ? user.name : "unknown"}</h1>
-  {user.age >= 18 && user.age && <p>Age: {user.age}</p>}
-  <p>{getLocation(user.location)}</p>
+  <h1>Count: {count}</h1>
+  <button onCLick={addOne}>+1</button>
+  <button onCLick={minusOne}>-1</button>
+  <button onCLick={reset}>reset</button>
  </div>
 );
-var appRoot = document.getElementById("app");
+
+let appRoot = document.getElementById("app");
 
 ReactDOM.render(template, appRoot);
