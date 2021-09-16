@@ -40,43 +40,42 @@ var template = React.createElement(
   )
 );
 
-///////////////////////////
-
-var user = {
-  name: "Peter",
-  age: 38,
-  location: "Cornwall"
+var count = 0;
+var addOne = function addOne() {
+  console.log("add 1");
 };
-var getLocation = function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      "p",
-      null,
-      "Location: ",
-      location
-    );
-  }
+var minusOne = function minusOne() {
+  console.log("minus 1");
 };
-var tempateTwo = React.createElement(
+var reset = function reset() {
+  console.log("reset");
+};
+var templateTwo = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    user.name ? user.name : "unknown"
-  ),
-  user.age >= 18 && user.age && React.createElement(
-    "p",
-    null,
-    "Age: ",
-    user.age
+    "Count: ",
+    count
   ),
   React.createElement(
-    "p",
-    null,
-    getLocation(user.location)
+    "button",
+    { onCLick: addOne },
+    "+1"
+  ),
+  React.createElement(
+    "button",
+    { onCLick: minusOne },
+    "-1"
+  ),
+  React.createElement(
+    "button",
+    { onCLick: reset },
+    "reset"
   )
 );
+
 var appRoot = document.getElementById("app");
 
 ReactDOM.render(template, appRoot);
